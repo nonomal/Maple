@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title id="title"></title>
     <style>
       html,
@@ -34,7 +37,7 @@
         appearance: none;
       }
       .selector-container::after {
-        content: '▽';
+        content: "▽";
         color: #fff;
         text-shadow: 2px 2px 4px rgba(50, 50, 100, 0.5);
         position: absolute;
@@ -82,9 +85,10 @@
   <body>
     <div class="selector-container">
       <select id="bg-selector">
+        <option value="bing">必应图</option>
+        <option value="unsplash">Unsplash</option>
         <option value="blank">空白页</option>
         <option value="random">随机图</option>
-        <option value="bing">必应图</option>
       </select>
     </div>
     <a id="bg-description"></a>

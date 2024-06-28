@@ -1,12 +1,14 @@
 {
   "name": "maple-bookmarks",
-  "version": "1.6",
   "description": "Let you navigate smoothly while hiding the bookmark bar.",
   "main": "bookmark/popup.js",
   "scripts": {
-    "bookmark": "zip -r ./resource/Maple.zip ./bookmark",
-    "newtab": "zip -r ./resource/NewTab.zip ./newtab",
-    "build": "npm run bookmark && npm run newtab"
+    "bookmark": "zip -r ./dist/Maple.zip ./bookmark",
+    "bookmark-firefox": "cp -R ./bookmark ./bookmark-firefox && cp ./bookmark/manifest_firefox.json ./bookmark-firefox/manifest.json && cd ./bookmark-firefox && zip -r ../dist/FirefoxMaple.zip . && cd .. && rm -rf ./bookmark-firefox",
+    "newtab": "zip -r ./dist/NewTab.zip ./newtab",
+    "theme":"zip -r ./dist/Theme.zip ./theme",
+    "build": "mkdir -p ./dist && yarn lint && yarn bookmark && yarn bookmark-firefox && yarn newtab && yarn theme",
+    "lint": "eslint . --ext .js --fix"
   },
   "keywords": [
     "bookmarks",
@@ -15,5 +17,12 @@
     "browser-extension"
   ],
   "author": "Tw93",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3"
+  }
 }
